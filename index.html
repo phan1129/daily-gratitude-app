@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+  <html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Daily Gratitude</title>
+      <!-- Link to external CSS file -->
+      <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+      <!-- Main container for the app -->
+      <div class="container">
+          <h1>Daily Gratitude</h1>
+          <p class="subtitle">What are you grateful for today?</p>
+
+          <!-- Input section -->
+          <div class="input-section">
+              <!-- Text area for user to type their gratitude note -->
+              <textarea 
+                  id="gratitudeInput" 
+                  placeholder="Write something you're grateful for..."
+                  rows="4"
+              ></textarea>
+
+              <!-- Save button -->
+              <button id="saveButton">Save</button>
+          </div>
+
+          <!-- Section to display saved notes -->
+          <div class="notes-section">
+              <h2>Your Gratitude Notes</h2>
+              <!-- This div will be populated with saved notes -->
+              <div id="notesList"></div>
+          </div>
+      </div>
+
+      <!-- Link to external JavaScript file -->
+      <script src="script.js"></script>
+  </body>
+  </html>
