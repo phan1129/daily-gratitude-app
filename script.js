@@ -83,7 +83,7 @@
           }
 
           // Loop through each note and create HTML for it
-          notes.forEach(function(note) {
+          notes.forEach(function(note, index) {
               // Create a div element for the note
               const noteDiv = document.createElement('div');
               noteDiv.className = 'note';
@@ -92,11 +92,33 @@
               noteDiv.innerHTML = `
                   <p class="note-text">${escapeHtml(note.text)}</p>
                   <p class="note-date">${note.date}</p>
+                  <button class="delete-btn" data-index="${index}">Delete</button>
               `;
+
+              // Add click event listener to the delete button
+              const deleteButton = noteDiv.querySelector('.delete-btn');
+              deleteButton.addEventListener('click', function() {
+                  deleteNote(index);
+              });
 
               // Add the note to the notes list
               notesList.appendChild(noteDiv);
           });
+      }
+
+      // Function to delete a note at a specific index
+      function deleteNote(index) {
+          // Get existing notes from storage
+          const notes = getNotesFromStorage();
+
+          // Remove the note at the specified index
+          notes.splice(index, 1);
+
+          // Save the updated notes array back to localStorage
+          saveNotesToStorage(notes);
+
+          // Refresh the display to show the updated list
+          displayNotes();
       }
 
       // Function to escape HTML characters to prevent XSS attacks
