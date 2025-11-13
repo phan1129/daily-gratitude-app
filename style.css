@@ -1,111 +1,186 @@
- /* Reset default margins and padding */
-  * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-  }
+/* Reset default margins and padding */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-  /* Body styling */
-  body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f5f5;
-      padding: 20px;
-  }
+/* Body styling */
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    background: linear-gradient(135deg, #fafafa 0%, #f0f0f0 100%);
+    padding: 40px 20px;
+    min-height: 100vh;
+}
 
-  /* Main container */
-  .container {
-      max-width: 600px;
-      margin: 0 auto;
-      background-color: white;
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-  }
+/* Main container */
+.container {
+    max-width: 680px;
+    margin: 0 auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
 
-  /* Main heading */
-  h1 {
-      color: #333;
-      text-align: center;
-      margin-bottom: 10px;
-  }
+/* Main heading */
+h1 {
+    color: #1f2937;
+    text-align: center;
+    margin-bottom: 12px;
+    font-size: 36px;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+}
 
-  /* Subtitle text */
-  .subtitle {
-      text-align: center;
-      color: #666;
-      margin-bottom: 30px;
-  }
+/* Subtitle text */
+.subtitle {
+    text-align: center;
+    color: #6b7280;
+    margin-bottom: 40px;
+    font-size: 18px;
+    font-weight: 400;
+}
 
-  /* Input section styling */
-  .input-section {
-      margin-bottom: 30px;
-  }
+/* Input section styling */
+.input-section {
+    margin-bottom: 40px;
+}
 
-  /* Text area styling */
-  #gratitudeInput {
-      width: 100%;
-      padding: 12px;
-      font-size: 16px;
-      border: 2px solid #ddd;
-      border-radius: 5px;
-      resize: vertical;
-      font-family: Arial, sans-serif;
-      margin-bottom: 10px;
-  }
+/* Text area styling */
+#gratitudeInput {
+    width: 100%;
+    padding: 16px;
+    font-size: 16px;
+    border: 2px solid #e5e7eb;
+    border-radius: 10px;
+    resize: vertical;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+    margin-bottom: 16px;
+    min-height: 120px;
+    line-height: 1.6;
+    transition: all 0.2s ease;
+}
 
-  #gratitudeInput:focus {
-      outline: none;
-      border-color: #4CAF50;
-  }
+#gratitudeInput:focus {
+    outline: none;
+    border-color: #10b981;
+    box-shadow: 0 0 0 3px rgba(16, 185, 129, 0.1);
+}
 
-  /* Save button styling */
-  #saveButton {
-      width: 100%;
-      padding: 12px;
-      background-color: #4CAF50;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      font-size: 16px;
-      cursor: pointer;
-      transition: background-color 0.3s;
-  }
+/* Save button styling */
+#saveButton {
+    width: 100%;
+    padding: 14px;
+    background-color: #10b981;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
 
-  #saveButton:hover {
-      background-color: #45a049;
-  }
+#saveButton:hover {
+    background-color: #059669;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
 
-  /* Notes section */
-  .notes-section h2 {
-      color: #333;
-      margin-bottom: 15px;
-      font-size: 20px;
-  }
+#saveButton:active {
+    transform: translateY(0);
+}
 
-  /* Individual note styling */
-  .note {
-      background-color: #f9f9f9;
-      padding: 15px;
-      margin-bottom: 10px;
-      border-radius: 5px;
-      border-left: 4px solid #4CAF50;
-  }
+/* Notes section */
+.notes-section h2 {
+    color: #1f2937;
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: 600;
+}
 
-  .note-text {
-      color: #333;
-      line-height: 1.5;
-      margin-bottom: 5px;
-  }
+/* Individual note styling */
+.note {
+    background-color: #f8fafc;
+    padding: 20px;
+    margin-bottom: 16px;
+    border-radius: 10px;
+    border-left: 5px solid #10b981;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: all 0.2s ease;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
 
-  .note-date {
-      color: #999;
-      font-size: 12px;
-  }
+.note:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transform: translateY(-2px);
+}
 
-  /* Empty state message */
-  .empty-message {
-      text-align: center;
-      color: #999;
-      padding: 20px;
-      font-style: italic;
-  }
+.note-text {
+    color: #374151;
+    line-height: 1.6;
+    margin-bottom: 8px;
+    font-size: 15px;
+}
+
+.note-date {
+    color: #9ca3af;
+    font-size: 13px;
+    margin-bottom: 12px;
+}
+
+/* Delete button styling */
+.delete-btn {
+    align-self: flex-end;
+    padding: 8px 16px;
+    background-color: #f3f4f6;
+    color: #6b7280;
+    border: none;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.delete-btn:hover {
+    background-color: #fee2e2;
+    color: #ef4444;
+    transform: scale(1.05);
+}
+
+.delete-btn:active {
+    transform: scale(0.98);
+}
+
+/* Empty state message */
+.empty-message {
+    text-align: center;
+    color: #9ca3af;
+    padding: 40px 20px;
+    font-style: italic;
+    font-size: 15px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 20px 16px;
+    }
+
+    .container {
+        padding: 30px 24px;
+    }
+
+    h1 {
+        font-size: 30px;
+    }
+
+    .subtitle {
+        font-size: 16px;
+    }
+}
