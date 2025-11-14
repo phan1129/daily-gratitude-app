@@ -1,9 +1,14 @@
-[README.md](https://github.com/user-attachments/files/23533077/README.md)
 # Daily Gratitude App
 
 A simple, beautiful web application for tracking daily gratitude notes with user authentication and cloud storage.
 
 ![Daily Gratitude App](https://img.shields.io/badge/version-2.0-green.svg)
+
+## 🌐 Live Demo
+
+**[View Live Application](https://phan1129-daily-gratitude-app.netlify.app/)**
+
+Try out the app without setting up your own instance! The live demo is fully functional with user authentication and database storage.
 
 ## Overview
 
@@ -66,7 +71,42 @@ daily-gratitude-app/
 - **INSERT**: Users can only insert notes with their own user_id
 - **DELETE**: Users can only delete their own notes
 
-## Setup Instructions
+## 🏗️ Architecture Overview
+
+This application follows a simple but robust three-tier architecture:
+
+### Frontend Layer
+- **HTML5/CSS3/JavaScript**: Pure vanilla JavaScript with no frameworks, keeping the app lightweight and fast
+- **Responsive Design**: Mobile-first approach with flexbox and CSS Grid
+- **Client-side Validation**: Email format, password strength, and input sanitization
+
+### Authentication Layer (Supabase Auth)
+- **Email/Password Authentication**: Secure user registration and login
+- **Session Management**: JWT-based sessions stored in browser localStorage
+- **Token Refresh**: Automatic token refresh for seamless user experience
+- **Email Verification**: Optional email confirmation for new accounts
+
+### Database Layer (Supabase PostgreSQL)
+- **PostgreSQL Database**: Fully managed by Supabase
+- **Row Level Security (RLS)**: Database-level security policies ensure users only access their own data
+- **Real-time Capabilities**: Built on PostgreSQL with real-time subscriptions (not currently used but available)
+- **API Gateway**: Supabase provides auto-generated REST and GraphQL APIs
+
+### Data Flow
+1. User authenticates via Supabase Auth → receives JWT token
+2. Frontend stores token and uses it for all API requests
+3. User creates/views/deletes notes → requests sent to Supabase with JWT
+4. Supabase validates JWT and applies RLS policies
+5. Only authorized data is returned to the user
+6. UI updates reactively based on database responses
+
+### Security Model
+- **Authentication**: Handled entirely by Supabase Auth (industry-standard security)
+- **Authorization**: RLS policies at database level (user_id = auth.uid())
+- **Data Protection**: All API calls over HTTPS, XSS prevention via HTML escaping
+- **No Backend Server**: Serverless architecture reduces attack surface
+
+## 🚀 Setup & Development
 
 ### Prerequisites
 
