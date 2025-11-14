@@ -54,17 +54,6 @@ daily-gratitude-app/
 └── README.md           # Project documentation
 ```
 
-## 📸 Screenshots
-
-### Authentication Screen
-![Authentication Screen](/Users/Personal/Desktop/Screenshot%202025-11-13%20at%204.27.23%20PM.png)
-
-### Main Application
-![Main Application - Placeholder](./screenshots/app-main.png)
-*Screenshot placeholder - to be replaced*
-
-> Note: Additional screenshots showing the gratitude note interface and features will be added soon.
-
 ## Database Schema
 
 ### Table: `gratitude_notes`

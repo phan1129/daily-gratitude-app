@@ -8,33 +8,138 @@
       <link rel="stylesheet" href="style.css">
   </head>
   <body>
-      <!-- Main container for the app -->
-      <div class="container">
-          <h1>Daily Gratitude</h1>
-          <p class="subtitle">What are you grateful for today?</p>
+      <!-- Authentication container - shown when user is logged out -->
+      <div id="authContainer" class="auth-container hidden">
+          <div class="auth-card">
+              <h1>Daily Gratitude</h1>
+              <p class="subtitle">Sign in to save your gratitude notes</p>
 
-          <!-- Input section -->
-          <div class="input-section">
-              <!-- Text area for user to type their gratitude note -->
-              <textarea 
-                  id="gratitudeInput" 
-                  placeholder="Write something you're grateful for..."
-                  rows="4"
-              ></textarea>
+              <!-- Sign Up Form -->
+              <form id="signUpForm" class="auth-form">
+                  <h2>Create Account</h2>
 
-              <!-- Save button -->
-              <button id="saveButton">Save</button>
-          </div>
+                  <!-- Error message area -->
+                  <div id="signUpError" class="error-message hidden"></div>
 
-          <!-- Section to display saved notes -->
-          <div class="notes-section">
-              <h2>Your Gratitude Notes</h2>
-              <!-- This div will be populated with saved notes -->
-              <div id="notesList"></div>
+                  <div class="form-group">
+                      <label for="signUpEmail">Email</label>
+                      <input
+                          type="email"
+                          id="signUpEmail"
+                          placeholder="your@email.com"
+                          required
+                      >
+                  </div>
+
+                  <div class="form-group">
+                      <label for="signUpPassword">Password</label>
+                      <input
+                          type="password"
+                          id="signUpPassword"
+                          placeholder="At least 8 characters"
+                          required
+                      >
+                  </div>
+
+                  <div class="form-group">
+                      <label for="signUpPasswordConfirm">Confirm Password</label>
+                      <input
+                          type="password"
+                          id="signUpPasswordConfirm"
+                          placeholder="Re-enter password"
+                          required
+                      >
+                  </div>
+
+                  <button type="submit" id="signUpButton" class="auth-button primary">
+                      Sign Up
+                  </button>
+
+                  <p class="auth-toggle">
+                      Already have an account?
+                      <a href="#" id="showLogin">Log in</a>
+                  </p>
+              </form>
+
+              <!-- Login Form -->
+              <form id="loginForm" class="auth-form hidden">
+                  <h2>Welcome Back</h2>
+
+                  <!-- Error message area -->
+                  <div id="loginError" class="error-message hidden"></div>
+
+                  <div class="form-group">
+                      <label for="loginEmail">Email</label>
+                      <input
+                          type="email"
+                          id="loginEmail"
+                          placeholder="your@email.com"
+                          required
+                      >
+                  </div>
+
+                  <div class="form-group">
+                      <label for="loginPassword">Password</label>
+                      <input
+                          type="password"
+                          id="loginPassword"
+                          placeholder="Enter your password"
+                          required
+                      >
+                  </div>
+
+                  <button type="submit" id="loginButton" class="auth-button primary">
+                      Log In
+                  </button>
+
+                  <p class="auth-toggle">
+                      Don't have an account?
+                      <a href="#" id="showSignUp">Sign up</a>
+                  </p>
+              </form>
           </div>
       </div>
 
-      <!-- Link to external JavaScript file -->
-      <script src="script.js"></script>
+      <!-- Main app container - shown when user is logged in -->
+      <div id="appContainer" class="hidden">
+          <!-- Logout header -->
+          <div class="logout-header">
+              <span id="userEmail" class="user-email"></span>
+              <button id="logoutButton" class="logout-button">Log Out</button>
+          </div>
+
+          <!-- Main container for the app -->
+          <div class="container">
+              <h1>Daily Gratitude</h1>
+              <p class="subtitle">What are you grateful for today?</p>
+
+              <!-- Input section -->
+              <div class="input-section">
+                  <!-- Text area for user to type their gratitude note -->
+                  <textarea
+                      id="gratitudeInput"
+                      placeholder="Write something you're grateful for..."
+                      rows="4"
+                  ></textarea>
+
+                  <!-- Save button -->
+                  <button id="saveButton">Save</button>
+              </div>
+
+              <!-- Section to display saved notes -->
+              <div class="notes-section">
+                  <h2>Your Gratitude Notes</h2>
+                  <!-- This div will be populated with saved notes -->
+                  <div id="notesList"></div>
+              </div>
+          </div>
+      </div>
+
+      <!-- Supabase SDK -->
+      <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+      <!-- Your app -->
+      <script src="script.js" defer></script>
+
   </body>
   </html>
